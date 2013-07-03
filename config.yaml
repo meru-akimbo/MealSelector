@@ -18,4 +18,6 @@ dinner:
  - name  : 'レトルトカレー'
    weight: 2
  - name  : '牛丼'
-   weight: 3
+   weight: 4
+ - name  : 'マクドナルド'
+   weight: 4
