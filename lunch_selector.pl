@@ -4,22 +4,33 @@ use YAML;
 use Math::Random::MT qw/rand/;
 use Encode 'encode';
 
-my $lunch_yaml = YAML::LoadFile('./config.yaml');
-print encode('utf8', select_lunch($lunch_yaml));
+my $kind_of_meal = shift;
 
-sub select_lunch {
-    my $lunch_yaml = shift;
-    my $lunch_list = _make_shop_list($lunch_yaml);
+my $meal_yaml = YAML::LoadFile('./config.yaml');
+my $meal = select_meal(+{
+        meal_yaml    => $meal_yaml,
+        kind_of_meal => $kind_of_meal
+    });
+
+print encode('utf8', $meal."\n");
+
+
+sub select_meal {
+    my $args = shift;
+    my $meal_yaml    = $args->{meal_yaml};
+    my $kind_of_meal = $args->{kind_of_meal};
+
+    my $lunch_list = _make_shop_list($meal_yaml->{$kind_of_meal});
     return $lunch_list->[rand scalar @$lunch_list];
 }
 
 sub _make_shop_list {
-    my $lunch_name = shift;
-    my @lunch_list = ();
-    for my $lunch (@$lunch_name) {
-        for (1..$lunch->{weight}) { push @lunch_list, $lunch->{name} }
+    my $meal_name = shift;
+    my @meal_list = ();
+    for my $meal (@$meal_name) {
+        for (1..$meal->{weight}) { push @meal_list, $meal->{name} }
     }
 
-    return \@lunch_list;
+    return \@meal_list;
 }
 

@@ -1,6 +1,21 @@
-- name  : 'たまご屋'
-  weight: 3
-- name  : '鳥元'
-  weight: 5
-- name  : 'カップ麺'
-  weight: 4
+breakfast:
+ - name   : 'フレンチトースト'
+   weight : 3
+ - name   : 'ジャーマンドック'
+   weight : 4
+ - name   : 'ゼリー'
+   weight : 1
+
+lunch:
+ - name  : 'たまご屋'
+   weight: 3
+ - name  : '鳥元'
+   weight: 5
+ - name  : 'カップ麺'
+   weight: 4
+
+dinner:
+ - name  : 'レトルトカレー'
+   weight: 2
+ - name  : '牛丼'
+   weight: 3
