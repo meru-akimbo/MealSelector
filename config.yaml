@@ -1,0 +1,6 @@
+- name  : 'たまご屋'
+  weight: 3
+- name  : '鳥元'
+  weight: 5
+- name  : 'カップ麺'
+  weight: 4
