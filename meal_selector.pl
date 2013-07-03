@@ -20,8 +20,8 @@ sub select_meal {
     my $meal_yaml    = $args->{meal_yaml};
     my $kind_of_meal = $args->{kind_of_meal};
 
-    my $lunch_list = _make_shop_list($meal_yaml->{$kind_of_meal});
-    return $lunch_list->[rand scalar @$lunch_list];
+    my $meal_list = _make_shop_list($meal_yaml->{$kind_of_meal});
+    return $meal_list->[rand scalar @$meal_list];
 }
 
 sub _make_shop_list {
