@@ -20,11 +20,11 @@ sub select_meal {
     my $meal_yaml    = $args->{meal_yaml};
     my $kind_of_meal = $args->{kind_of_meal};
 
-    my $meal_list = _make_shop_list($meal_yaml->{$kind_of_meal});
+    my $meal_list = _make_meal_list($meal_yaml->{$kind_of_meal});
     return $meal_list->[rand scalar @$meal_list];
 }
 
-sub _make_shop_list {
+sub _make_meal_list {
     my $meal_name = shift;
     my @meal_list = ();
     for my $meal (@$meal_name) {
