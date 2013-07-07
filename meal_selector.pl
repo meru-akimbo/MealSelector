@@ -18,8 +18,9 @@ print encode('utf8', $meal."\n");
 sub select_meal {
     my $args = shift;
     my $meal_yaml    = $args->{meal_yaml};
-    my $kind_of_meal = $args->{kind_of_meal};
+    my $kind_of_meal = $args->{kind_of_meal} || '';
 
+    die "$kind_of_mealの設定が存在しないよ" unless exists $meal_yaml->{$kind_of_meal};
     my $meal_list = _make_meal_list($meal_yaml->{$kind_of_meal});
     return $meal_list->[rand scalar @$meal_list];
 }
